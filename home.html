@@ -22,26 +22,50 @@
             Find.me
         </a>
         <ul class="nav nav-pills">
-            <li class="nav-item">
-                <a class="nav-link" href="#fat">Home</a>
-            </li>
             <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Configuration</a>
+                <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Configurações</a>
                 <div class="dropdown-menu">
-                    <a class="dropdown-item" href="#one">one</a>
-                    <a class="dropdown-item" href="#two">two</a>
+                    <a class="dropdown-item" href="#">Informações</a>
+                    <a onclick="logOut(userName)" class="dropdown-item" href="#">Logout</a>
                 </div>
             </li>
         </ul>
     </nav>
 
+
+
+
+
+
     <div class="list-group">
-        <a id="suporte" href="#" class="list-group-item list-group-item-action list-group-item-light">Sala Suporte</a>
-        <a href="#" class="list-group-item list-group-item-action list-group-item-light">Produtos informacionais</a>
-        <a href="#" class="list-group-item list-group-item-action list-group-item-light">This is a dark list group item</a>
+
+        <a href="#" id="Sala Suporte" onclick="updateUserLocation(userName, this.id)" 
+        class="d-flex justify-content-end list-group-item list-group-item-action list-group-item-light">
+            <span class="mr-auto">Sala Suporte</span>
+        </a>  
+
+        <a href="#" id="Produtos Informacionais" onclick="updateUserLocation(userName, this.id)" 
+        class="d-flex justify-content-end list-group-item list-group-item-action list-group-item-light">
+            <span class="mr-auto">Produtos Informacionais</span>
+        </a>  
+
+        <a href="#" id="Secretaria" onclick="updateUserLocation(userName, this.id)" 
+        class="d-flex justify-content-end list-group-item list-group-item-action list-group-item-light">
+            <span class="mr-auto">Secretaria</span>
+        </a>  
+        <a href="#" id="Balcão" onclick="updateUserLocation(userName, this.id)" 
+        class="d-flex justify-content-end list-group-item list-group-item-action list-group-item-light">
+            <span class="mr-auto">Balcão</span>
+        </a>  
+        <a href="#" id="Braille" onclick="updateUserLocation(userName, this.id)" 
+        class="d-flex justify-content-end list-group-item list-group-item-action list-group-item-light">
+            <span class="mr-auto">Braille</span>
+        </a>  
+        
+        
     </div>
 
-
+    
 
 
 
