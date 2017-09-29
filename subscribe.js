@@ -5,6 +5,7 @@ const btnSubscribe = document.getElementById('btnSubscribe');
 
 
 function initApp() {
+    // Authentication listener, ie, when user log in
     firebase.auth().onAuthStateChanged(function (user) {
         if (user) {
             var userName = txtName.value;
@@ -13,6 +14,7 @@ function initApp() {
         }
     });
 
+    // Button listener
     btnSubscribe.addEventListener('click', function () {
         var email = txtEmail.value;
         var password = txtPass.value;
@@ -35,6 +37,8 @@ function signUp(email, password) {
 
 function signIn(email, password) {
     var alertMessage = 'Realizando seu login, por favor aguarde...';
+    // This function needs to have the alert function or else it doesn't sign in the user
+    // I don't know why is that :(
     firebase.auth().signInWithEmailAndPassword(email, password)
         .then(alert(alertMessage))
         .catch(function (err) {

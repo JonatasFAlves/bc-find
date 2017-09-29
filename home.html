@@ -9,17 +9,16 @@
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M"
         crossorigin="anonymous">
+
+    <title>BcFind</title>
 </head>
 
 <body class="bg-light">
-
-
-
-
+    <!-- NavBar -->
     <nav class="navbar navbar-dark bg-dark">
         <a class="navbar-brand" href="#">
             <img src="./assets/brand/bootstrap-solid.svg" width="30" height="30" class="d-inline-block align-top" alt="">
-            Find.me
+            Find
         </a>
         <ul class="nav nav-pills">
             <li class="nav-item dropdown">
@@ -32,41 +31,27 @@
         </ul>
     </nav>
 
-
-
-
-
-
+    <!-- Locations.  -->
+    <!-- Para adicionar nova localidade basta copiar antiga e modificar o ID e <span> txt -->
     <div class="list-group">
 
-        <a href="#" id="Sala Suporte" onclick="updateUserLocation(userName, this.id)" 
-        class="d-flex justify-content-end list-group-item list-group-item-action list-group-item-light">
+        <a href="#" id="Sala Suporte" onclick="updateUserLocation(userName, this.id)" class="d-flex justify-content-end list-group-item list-group-item-action list-group-item-light">
             <span class="mr-auto">Sala Suporte</span>
-        </a>  
-
-        <a href="#" id="Produtos Informacionais" onclick="updateUserLocation(userName, this.id)" 
-        class="d-flex justify-content-end list-group-item list-group-item-action list-group-item-light">
+        </a>
+        <a href="#" id="Produtos Informacionais" onclick="updateUserLocation(userName, this.id)" class="d-flex justify-content-end list-group-item list-group-item-action list-group-item-light">
             <span class="mr-auto">Produtos Informacionais</span>
-        </a>  
-
-        <a href="#" id="Secretaria" onclick="updateUserLocation(userName, this.id)" 
-        class="d-flex justify-content-end list-group-item list-group-item-action list-group-item-light">
+        </a>
+        <a href="#" id="Secretaria" onclick="updateUserLocation(userName, this.id)" class="d-flex justify-content-end list-group-item list-group-item-action list-group-item-light">
             <span class="mr-auto">Secretaria</span>
-        </a>  
-        <a href="#" id="Balcão" onclick="updateUserLocation(userName, this.id)" 
-        class="d-flex justify-content-end list-group-item list-group-item-action list-group-item-light">
+        </a>
+        <a href="#" id="Balcão" onclick="updateUserLocation(userName, this.id)" class="d-flex justify-content-end list-group-item list-group-item-action list-group-item-light">
             <span class="mr-auto">Balcão</span>
-        </a>  
-        <a href="#" id="Braille" onclick="updateUserLocation(userName, this.id)" 
-        class="d-flex justify-content-end list-group-item list-group-item-action list-group-item-light">
+        </a>
+        <a href="#" id="Braille" onclick="updateUserLocation(userName, this.id)" class="d-flex justify-content-end list-group-item list-group-item-action list-group-item-light">
             <span class="mr-auto">Braille</span>
-        </a>  
-        
-        
+        </a>
+
     </div>
-
-    
-
 
 
 
@@ -79,6 +64,7 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js" integrity="sha384-h0AbiXch4ZDo7tp9hKZ4TsHbi047NrKGLO3SEJAg45jXxnGIfYzk4Si90RDIqNm1"
         crossorigin="anonymous"></script>
 
+    <!-- Firebase and custom JavaScript files -->
     <script src="https://www.gstatic.com/firebasejs/4.3.1/firebase.js"></script>
     <script src="config/init.js"></script>
     <script src="home.js"></script>

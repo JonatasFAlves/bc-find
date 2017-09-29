@@ -5,20 +5,13 @@ function initApp() {
     firebase.auth().onAuthStateChanged(function (user) {
         if (user) {
             userName = user.displayName;
-
-            // return firebase.database().ref('user-locations/').once('value').then(function (snapshot) {
-            //     snapshot.forEach(function (childSnapshot) {
-            //         var userName = childSnapshot.key;
-            //         var location = childSnapshot.val();
-            //         addUserBadge(userName, location);
-            //     });
-            // });
-
         } else {
             window.location.href = 'index.html';
         }
     });
 
+    // Listeners for the firebase, adding or deleting the names
+    // acording to the db's reponse.
     var locationRef = firebase.database().ref('user-locations/');
     locationRef.on('child_added', function (data) {
         var userName = data.key;
@@ -45,6 +38,12 @@ function updateUserLocation(userName, location) {
     return firebase.database().ref('user-locations/').update({ [userName]: location });
 }
 
+function logOut(userName){
+    updateUserLocation(userName, null);
+    return firebase.auth().signOut();
+}
+
+// Add or delete user name in the location
 function addUserBadge(userName, finalLocation) {
     var element = document.createElement("span");
     element.id = userName;
@@ -56,22 +55,6 @@ function addUserBadge(userName, finalLocation) {
 function deleteUserBadge(userName) {
     var element = document.getElementById([userName]);
     element.parentNode.removeChild(element);
-}
-
-function logOut(userName){
-    updateUserLocation(userName, null);
-    return firebase.auth().signOut();
-}
-
-function updateUserProfile() {
-    user.updateProfile({
-        displayName: "Jane Q. User",
-        photoURL: "https://example.com/jane-q-user/profile.jpg"
-    }).then(function () {
-        // Update successful.
-    }).catch(function (error) {
-        // An error happened.
-    });
 }
 
 window.onload = function () {

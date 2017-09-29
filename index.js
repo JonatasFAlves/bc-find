@@ -4,18 +4,17 @@ const btnLogin = document.getElementById('btnLogin');
 
 var userName;
 
-function initApp() {    
-    //If the code is working, then test it inside the initApp function.
+function initApp() {  
+
+    // Authentication listener, ie, when user log in
     firebase.auth().onAuthStateChanged(function (user) {
         if (user) {
             userName = user.displayName;            
-            firebase.database().ref('user-locations/').set({
-                [userName]: 'Sala Suporte'
-            });
             window.location.href = 'home.html';
         }
     });
 
+    // Button event listener
     btnLogin.addEventListener('click', function () {
         var email = txtEmail.value;
         var password = txtPass.value;
@@ -30,24 +29,17 @@ function initApp() {
 };
 
 function signIn(email, pass) {
+    var alertMessage = 'Realizando seu login, por favor aguarde...';
+    // This function needs to have the alert function or else it doesn't sign in the user
+    // I don't know why is that :(
     return firebase.auth().signInWithEmailAndPassword(email, pass)
-        .then(alert('Logged In'))
+        .then(alert(alertMessage))
         .catch(function (err) {
             if (err) {
                 alert(err.message);
             }
         });
 }
-
-// function writeUserLocation(userName, location) {
-//     return firebase.database().ref('user-locations/').set({ [userName]: location });
-// }
-
-function writeUserLocation(name, location) {
-    return firebase.database().ref('user-locations/').set({
-        [userName]: location
-    });
-  }
 
 window.onload = function () {
     initApp();
