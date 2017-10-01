@@ -16,6 +16,9 @@ function initApp() {
     locationRef.on('child_added', function (data) {
         var userName = data.key;
         var location = data.val();
+        // Solved issue: user click too fast generating undefined userName
+        if (userName === "undefined") return;
+
         addUserBadge(userName, location);
     });
 
@@ -38,7 +41,7 @@ function updateUserLocation(userName, location) {
     return firebase.database().ref('user-locations/').update({ [userName]: location });
 }
 
-function logOut(userName){
+function logOut(userName) {
     updateUserLocation(userName, null);
     return firebase.auth().signOut();
 }
@@ -47,7 +50,7 @@ function logOut(userName){
 function addUserBadge(userName, finalLocation) {
     var element = document.createElement("span");
     element.id = userName;
-    element.className = 'p-2 ml-1 badge badge-primary'
+    element.className = "p-2 ml-1 badge badge-primary"
     element.appendChild(document.createTextNode([userName]));
     document.getElementById([finalLocation]).appendChild(element);
 }
