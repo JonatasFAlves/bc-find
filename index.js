@@ -32,8 +32,7 @@ function signIn(email, pass) {
     var alertMessage = 'Realizando seu login, por favor aguarde...';
     // This function needs to have the alert function or else it doesn't sign in the user
     // I don't know why is that :(
-    return firebase.auth().signInWithEmailAndPassword(email, pass)
-        .then(alert(alertMessage))
+    return firebase.auth().signInWithEmailAndPassword(email, pass)        
         .catch(function (err) {
             if (err) {
                 alert(err.message);
