@@ -2,6 +2,10 @@ var userName;
 
 function initApp() {
 
+    var alertMessage = 
+    "Lembre-se de realizar log off quando não for mais utilizar a aplicação,\nassim, seu token será apagado das localizações";
+    alert(alertMessage);
+
     firebase.auth().onAuthStateChanged(function (user) {
         if (user) {
             userName = user.displayName;
@@ -34,7 +38,7 @@ function initApp() {
         deleteUserBadge(userName);
     });
 
-
+    
 }
 
 function updateUserLocation(userName, location) {
